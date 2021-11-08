@@ -1,39 +1,33 @@
-<?php
-    require_once 'Nomor3.php';
+<?php 
+    require_once 'Nomor2.php';
 ?>
 
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="Tabel.css">
     <title>Praktikum 4</title>
 </head>
 <body>
-<h2>Soal No 3</h2>
-<table align="center">
-<tr align="cemtar" bgcolor=#B4FE98>
-    <td>Objek</td>
-    <td>Umur</td>  
-    <td>Nama</td>  
-    <td>Panjang Ekor</td>  
-    <td>Cara Bergerak</td>      
-</tr>
+<h2>Soal No 2</h2>
+<div class="form">
+    <form action="" method="post">
+            <input type="number" name="input1">
+            <input type="number" name="input2">
+            <input type="number" name="input3">
+            <button type="submit" name="submit">Submit</button>
+          </form>
+        </div>
 
-<tr>
-    <td>01</td>
-    <td><?=$katak->getUmur() ?> </td>  
-    <td><?=$katak->getnama() ?> </td>  
-    <td>-</td>  
-    <td><?=$katak->carabergerak() ?> </td>      
-</tr>
-
-<tr>
-    <td>02</td>
-    <td><?=$kecebong->getUmur() ?></td>  
-    <td><?=$kecebong->getNama() ?></td>  
-    <td><?=$kecebong->getpanjangekor() ?></td>  
-    <td><?=$kecebong->carabergerak() ?></td>      
-</tr>
-
-</table>
+          <?php 
+              if (isset($_POST['submit'])) {
+                if (!$_POST['input3']) {
+                  $value1 = new RerataNilai2($_POST['input1'], $_POST['input2']);
+                  echo $value1->average(0);
+                } else {
+                  $value1 = new RerataNilai2($_POST['input1'], $_POST['input2']);
+                  echo $value1->average($_POST['input3']);
+                }
+              }
+            ?>
+</div>
 </body>
 </html>
